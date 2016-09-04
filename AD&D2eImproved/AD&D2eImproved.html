@@ -1,0 +1,85 @@
+<!--
+	AD&D 2e Character sheet heavily influenced by the tabbed character sheet
+	produced by OldSchoolChris located at 
+	https://github.com/OldSchoolChris/AD-D-2e-Multi-tabbed-sheet
+	
+	After gratuitous time spent working on it for my own campaign, I decided
+	that in order to get all of the functionality and use that I'd like out of
+	it, I would have to rebuild it from scratch. So I am.
+-->
+<link href="AD&D2eImproved.css" rel="stylesheet" type="text/css">
+
+<div class="sheet-main">
+	<!-- Player Character/Non-Player Character Switch -->
+	<input class="sheet-playerbool" type="checkbox" name="attr_npc" 
+		title="Player Character/Non-Player Character" value="1">
+	<span class="sheet-playerbool-tab"></span>
+	<!-- End Switch -->
+	<!-- Begin Player Character Sheet -->
+	<div class="sheet-playersheet">
+	
+		<!-- Begin Character Sheet Tab Selection -->
+		
+		<!-- Character Tab: Character information; Race, Age, Physical Desc.-->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-character" 
+			value="1" checked="checked"/>
+		<span class="sheet-tab sheet-tab-character">Character</span>
+		
+		<!-- Core Ability Tab: Core Abilities and Saves -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-attributes" 
+			value="2"/>
+		<span class="sheet-tab sheet-tab-attributes">Stats</span>
+		
+		<!-- Skills/Proficiencies Tab: Skills, Weapon Proficiencies, and NWPs-->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-skills" 
+			value="3"/>
+		<span class="sheet-tab sheet-tab-skills">Proficiencies</span>
+		
+		<!-- Weapons Tab: Weapons -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-weapons" 
+			value="4"/>
+		<span class="sheet-tab sheet-tab-weapons">Weapons</span>
+		
+		<!-- Rogue Tab: Rogue Skills -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-rogue" 
+			value="5"/>
+		<span class="sheet-tab sheet-tab-rogue">Rogue</span>
+		
+		<!-- Mage Tab: Spells -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-mage" 
+			value="6"/>
+		<span class="sheet-tab sheet-tab-mage">Mage</span>
+		
+		<!-- Cleric Tab: Spells and Turn Undead -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-cleric" 
+			value="7"/>
+		<span class="sheet-tab sheet-tab-cleric">Cleric</span>
+		
+		<!-- Psionics Tab: Psionic Powers -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-psionics" 
+			value="8"/>
+		<span class="sheet-tab sheet-tab-psionics">Psionics</span>
+		
+		<!-- Other Abilities Tab: Abilities That don't need their own tab -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-ability" 
+			value="9"/>
+		<span class="sheet-tab sheet-tab-ability">Abilities</span>
+		
+		<!-- Inventory Tab: Inventory -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-inventory" 
+			value="10"/>
+		<span class="sheet-tab sheet-tab-inventory">Inventory</span>
+		
+		<!-- Journal Tab: Notes -->
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-journal" 
+			value="11"/>
+		<span class="sheet-tab sheet-tab-journal">Journal</span>
+		
+		<!-- End Character Sheet Tab Selection -->
+		
+		<!-- Begin Character Section -->
+		<div class="sheet-section-character">
+			<div class="sheet-blackbar-title">General Character Information</div>
+		</div>
+	</div>
+</div>

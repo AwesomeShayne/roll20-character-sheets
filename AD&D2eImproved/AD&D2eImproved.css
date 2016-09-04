@@ -1,0 +1,150 @@
+/*
+ *	AD&D 2e Character sheet heavily influenced by the tabbed character sheet
+ *	produced by OldSchoolChris located at 
+ *	https://github.com/OldSchoolChris/AD-D-2e-Multi-tabbed-sheet
+ *
+ *	After gratuitous time spent working on it for my own campaign, I decided
+ *	that in order to get all of the functionality and use that I'd like out of
+ *	it, I would have to rebuild it from scratch. So I am.
+ */
+
+ /*** Begin Global Style Classes ***/
+ div.sheet-blackbar-title {
+	background-color: #000000;
+    color: #ffffff;
+	font-size: 12px;
+	border-radius: 12px;
+	padding-left: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-align: center;
+	font-weight: bold;
+ }
+ 
+ 
+/*
+ *	Class to define the entire width of the sheet.
+ */
+.sheet-main {
+	max-width: 1024;
+}
+/*** Begin definition for handling NPC/Player Switch ***/
+/* Class to determine whether the character sheet is a Player Character or a
+ * Non-Player Character.*/
+input.sheet-playerbool:checked ~ div.sheet-npc,
+input.sheet-playerbool:not(:checked )~ div.sheet-playersheet {
+	display: block
+}
+
+/* Verify that neither sheet shows by default */
+ div.sheet-playersheet,  div.sheet-npcsheet { 	
+	display: none;
+}
+
+/* Settings for input checkbox.*/
+input.sheet-playerbool {
+	width: 20%;
+	height: 20px;
+	cursor: pointer;
+	position: relative;
+	z-index: 9999;
+}
+
+/* Set the content for the tab on Player Mode */
+span.sheet-playerbool-tab::before {
+	content: "Player Sheet";
+}
+
+/* Make the Player/NPC Tab pretty. Set color for Player Mode.*/
+span.sheet-playerbool-tab {
+    text-align: center;
+    display: inline-block;    
+    width: 20%;
+    height: 20px;
+    font-size: 9px;
+	
+	background: #65763c;
+	color: white;
+	font-weight: bold;
+	border-radius: 4px;
+	margin-left: -20%;
+	position: relative;
+}
+
+/* Set the color for the tab when it is set to NPC */
+input.sheet-playerbool:checked + span.sheet-playerbool-tab {
+    background: #93537c;     
+    color: white;
+}
+
+/* Set the content for the tab when it is set to NPC */
+input.sheet-playerbool:checked + span.sheet-playerbool-tab::before {
+	content: "NPC Sheet"
+}
+/*** End Player Character/Non-Player Character Switch ***/
+
+/*** Begin definition for handling Player Sheet Tab Switching ***/
+/* Ensure that all of the tabs are closed when unselected */
+div[class^="sheet-section"] {
+	display: none;
+}
+
+/* Ensure that, when selected, tabs are shown.*/
+input.sheet-character:checked ~ div.sheet-section-character,
+input.sheet-attributes:checked ~ div.sheet-section-attributes,
+input.sheet-skills:checked ~ div.sheet-section-skills,
+input.sheet-weapons:checked ~ div.sheet-section-weapons,
+input.sheet-rogue:checked ~ div.sheet-section-rogue,
+input.sheet-mage:checked ~ div.sheet-section-mage,
+input.sheet-cleric:checked ~ div.sheet-section-cleric,
+input.sheet-psionics:checked ~ div.sheet-section-psionics,
+input.sheet-ability:checked ~ div.sheet-section-ability,
+input.sheet-inventory:checked ~ div.sheet-section-inventory,
+input.sheet-journal:checked ~ div.sheet-section-journal{
+	display: block;
+}
+
+/* Ensure that the radiobutton takes up the entire tab */
+input.sheet-tab {
+	width: 8%;
+	margin-left: 0.5%;
+	height: 20px;
+	position: relative;
+	cursor: pointer;
+	z-index: 9999;
+}
+
+/* Make the tabs take up the full width of the screen. Also make 'em pretty */
+span.sheet-tab {
+	text-align: center;
+	display: inline-block;
+	font-size: 13px;
+	background: #4a6486;
+	color: white;
+	font-weight: bold;
+	
+	width: 8%;
+	height: 20px;
+	cursor: pointer;
+	border-radius: 4px;
+	position: relative;
+	margin-left: -8.5%;
+}
+
+/* Ensure there is indication as to which tab is selected */
+input.sheet-character:checked + span.sheet-tab-character,
+input.sheet-attributes:checked + span.sheet-tab-attributes,
+input.sheet-skills:checked + span.sheet-tab-skills,
+input.sheet-weapons:checked + span.sheet-tab-weapons,
+input.sheet-rogue:checked + span.sheet-tab-rogue,
+input.sheet-mage:checked + span.sheet-tab-mage,
+input.sheet-cleric:checked + span.sheet-tab-cleric,
+input.sheet-psionics:checked + span.sheet-tab-psionics,
+input.sheet-ability:checked + span.sheet-tab-ability,
+input.sheet-inventory:checked + span.sheet-tab-inventory,
+input.sheet-journal:checked + span.sheet-tab-journal{
+	background: #ab8b57;    
+    color: white;
+	border-radius: 4px;
+}
+/*** End Player Tab Selection ***/
