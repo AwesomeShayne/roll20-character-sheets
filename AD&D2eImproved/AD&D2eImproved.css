@@ -8,7 +8,8 @@
  *	it, I would have to rebuild it from scratch. So I am.
  */
 
- /*** Begin Global Style Classes ***/
+/*** Begin Global Style Classes ***/
+/* Special Black Bar Title */
  div.sheet-blackbar-title {
 	background-color: #000000;
     color: #ffffff;
@@ -19,20 +20,66 @@
 	margin-top: 5px;
 	text-align: center;
 	font-weight: bold;
- }
+}
+
+ input[type=number],  input[type=text],  select {
+	width: 100%;
+	margin-bottom:2px!important;
+	
+}
+
+/* Underlined Field Definition*/ 
+ .sheet-underlined {
+	text-align: center;
+	box-shadow: 0px -2px 0px 0px #000000 inset;
+	border-radius: 4px;
+}
  
+/* Sheet Small Label Definition */
+ .sheet-small-label {
+	text-align: center;
+	font-size: 85%;
+	font-style: italic;
+	font-weight: bold;
+}
  
+/* Row Definitions */
+ .sheet-row {
+	max-width: 100%;
+}
+
+ 
+/* Column Definitions */
+ [class *= "sheet-col"] {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+}
+
+ .sheet-col-1-8 {
+	width: 12.5%;
+}
+ 
+ .sheet-col-1-16 {
+	 width: 6.25%;
+}
+
+ .sheet-col-11-16 {
+	 width: 68.75%;
+}
 /*
  *	Class to define the entire width of the sheet.
  */
 .sheet-main {
-	max-width: 1024;
+	max-width: 866;
 }
 /*** Begin definition for handling NPC/Player Switch ***/
 /* Class to determine whether the character sheet is a Player Character or a
  * Non-Player Character.*/
-input.sheet-playerbool:checked ~ div.sheet-npc,
-input.sheet-playerbool:not(:checked )~ div.sheet-playersheet {
+ input.sheet-playerbool:checked ~ div.sheet-npc,
+ input.sheet-playerbool:not(:checked )~ div.sheet-playersheet {
 	display: block
 }
 
@@ -42,7 +89,7 @@ input.sheet-playerbool:not(:checked )~ div.sheet-playersheet {
 }
 
 /* Settings for input checkbox.*/
-input.sheet-playerbool {
+ input.sheet-playerbool {
 	width: 20%;
 	height: 20px;
 	cursor: pointer;
@@ -51,12 +98,12 @@ input.sheet-playerbool {
 }
 
 /* Set the content for the tab on Player Mode */
-span.sheet-playerbool-tab::before {
+ span.sheet-playerbool-tab::before {
 	content: "Player Sheet";
 }
 
 /* Make the Player/NPC Tab pretty. Set color for Player Mode.*/
-span.sheet-playerbool-tab {
+ span.sheet-playerbool-tab {
     text-align: center;
     display: inline-block;    
     width: 20%;
@@ -72,42 +119,42 @@ span.sheet-playerbool-tab {
 }
 
 /* Set the color for the tab when it is set to NPC */
-input.sheet-playerbool:checked + span.sheet-playerbool-tab {
+ input.sheet-playerbool:checked + span.sheet-playerbool-tab {
     background: #93537c;     
     color: white;
 }
 
 /* Set the content for the tab when it is set to NPC */
-input.sheet-playerbool:checked + span.sheet-playerbool-tab::before {
+ input.sheet-playerbool:checked + span.sheet-playerbool-tab::before {
 	content: "NPC Sheet"
 }
 /*** End Player Character/Non-Player Character Switch ***/
 
 /*** Begin definition for handling Player Sheet Tab Switching ***/
 /* Ensure that all of the tabs are closed when unselected */
-div[class^="sheet-section"] {
+ div[class^="sheet-section"] {
 	display: none;
 }
 
 /* Ensure that, when selected, tabs are shown.*/
-input.sheet-character:checked ~ div.sheet-section-character,
-input.sheet-attributes:checked ~ div.sheet-section-attributes,
-input.sheet-skills:checked ~ div.sheet-section-skills,
-input.sheet-weapons:checked ~ div.sheet-section-weapons,
-input.sheet-rogue:checked ~ div.sheet-section-rogue,
-input.sheet-mage:checked ~ div.sheet-section-mage,
-input.sheet-cleric:checked ~ div.sheet-section-cleric,
-input.sheet-psionics:checked ~ div.sheet-section-psionics,
-input.sheet-ability:checked ~ div.sheet-section-ability,
-input.sheet-inventory:checked ~ div.sheet-section-inventory,
-input.sheet-journal:checked ~ div.sheet-section-journal{
+ input.sheet-character:checked ~ div.sheet-section-character,
+ input.sheet-attributes:checked ~ div.sheet-section-attributes,
+ input.sheet-skills:checked ~ div.sheet-section-skills,
+ input.sheet-weapons:checked ~ div.sheet-section-weapons,
+ input.sheet-rogue:checked ~ div.sheet-section-rogue,
+ input.sheet-mage:checked ~ div.sheet-section-mage,
+ input.sheet-cleric:checked ~ div.sheet-section-cleric,
+ input.sheet-psionics:checked ~ div.sheet-section-psionics,
+ input.sheet-ability:checked ~ div.sheet-section-ability,
+ input.sheet-inventory:checked ~ div.sheet-section-inventory,
+ input.sheet-journal:checked ~ div.sheet-section-journal{
 	display: block;
 }
 
 /* Ensure that the radiobutton takes up the entire tab */
-input.sheet-tab {
-	width: 8%;
-	margin-left: 0.5%;
+ input.sheet-tab {
+	width: 8.65%;
+	margin-left: 0.15%;
 	height: 20px;
 	position: relative;
 	cursor: pointer;
@@ -115,7 +162,7 @@ input.sheet-tab {
 }
 
 /* Make the tabs take up the full width of the screen. Also make 'em pretty */
-span.sheet-tab {
+ span.sheet-tab {
 	text-align: center;
 	display: inline-block;
 	font-size: 13px;
@@ -123,26 +170,26 @@ span.sheet-tab {
 	color: white;
 	font-weight: bold;
 	
-	width: 8%;
+	width: 8.65%;
 	height: 20px;
 	cursor: pointer;
 	border-radius: 4px;
 	position: relative;
-	margin-left: -8.5%;
+	margin-left: -8.8%;
 }
 
 /* Ensure there is indication as to which tab is selected */
-input.sheet-character:checked + span.sheet-tab-character,
-input.sheet-attributes:checked + span.sheet-tab-attributes,
-input.sheet-skills:checked + span.sheet-tab-skills,
-input.sheet-weapons:checked + span.sheet-tab-weapons,
-input.sheet-rogue:checked + span.sheet-tab-rogue,
-input.sheet-mage:checked + span.sheet-tab-mage,
-input.sheet-cleric:checked + span.sheet-tab-cleric,
-input.sheet-psionics:checked + span.sheet-tab-psionics,
-input.sheet-ability:checked + span.sheet-tab-ability,
-input.sheet-inventory:checked + span.sheet-tab-inventory,
-input.sheet-journal:checked + span.sheet-tab-journal{
+ input.sheet-character:checked + span.sheet-tab-character,
+ input.sheet-attributes:checked + span.sheet-tab-attributes,
+ input.sheet-skills:checked + span.sheet-tab-skills,
+ input.sheet-weapons:checked + span.sheet-tab-weapons,
+ input.sheet-rogue:checked + span.sheet-tab-rogue,
+ input.sheet-mage:checked + span.sheet-tab-mage,
+ input.sheet-cleric:checked + span.sheet-tab-cleric,
+ input.sheet-psionics:checked + span.sheet-tab-psionics,
+ input.sheet-ability:checked + span.sheet-tab-ability,
+ input.sheet-inventory:checked + span.sheet-tab-inventory,
+ input.sheet-journal:checked + span.sheet-tab-journal{
 	background: #ab8b57;    
     color: white;
 	border-radius: 4px;
